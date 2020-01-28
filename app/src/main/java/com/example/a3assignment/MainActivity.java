@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -20,13 +19,15 @@ public class MainActivity extends AppCompatActivity {
     ListView listView;
     Calendar calendar = Calendar.getInstance();
     String currentDate = DateFormat.getDateInstance().format(calendar.getTime());
-    ArrayList<Calendar> arrayList = new ArrayList<Calendar>();
-    ArrayAdapter arrayAdapter = new ArrayAdapter(MainActivity.this, android.R.layout.simple_list_item_1, arrayList);
+    ArrayAdapter arrayAdapter;
+    ArrayList<String> arrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        arrayList = new ArrayList<>();
+        arrayAdapter = new ArrayAdapter(MainActivity.this, android.R.layout.simple_list_item_1, arrayList);
 
         buttonAddTime = (Button) findViewById(R.id.buttonAddTime);
         buttonAddTime.setOnClickListener(new View.OnClickListener() {
@@ -36,15 +37,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         listView=(ListView)findViewById(R.id.listview);
-
-        final ArrayList<String> arrayList = new ArrayList<>();
-
-        arrayList.add(currentDate);
-
-        ArrayAdapter arrayAdapter = new ArrayAdapter(MainActivity.this, android.R.layout.simple_list_item_1, arrayList);
-
+        //arrayList.add(currentDate);
         listView.setAdapter(arrayAdapter);
-
 
     }
 

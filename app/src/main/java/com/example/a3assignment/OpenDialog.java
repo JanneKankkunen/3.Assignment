@@ -18,6 +18,8 @@ public class OpenDialog extends AppCompatDialogFragment {
                     @Override
                     public void onClick(DialogInterface dialog, int i) {
 
+
+
                     }
                 });
         return builder.create();
